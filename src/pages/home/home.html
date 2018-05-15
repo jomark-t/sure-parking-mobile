@@ -1,17 +1,31 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="yellow">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
     <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-list inset>
+
+  <ion-item>
+    <ion-label color="dark"><ion-icon ios="ios-search" md="md-search"></ion-icon></ion-label>
+    <ion-input type="search" placeholder="Destination" clearInput="true" [(ngModel)]="user_destination"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark">Date</ion-label>
+    <ion-datetime displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" placeholder="May 12, 2018" [(ngModel)]="user_date"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label color="dark">Time</ion-label>
+    <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" placeholder="03:00 PM" [(ngModel)]="user_time"></ion-datetime>
+  </ion-item>
+
+</ion-list>
+
+<button ion-button color="dark" (click)='sendBookings();' full>Book</button>
 </ion-content>

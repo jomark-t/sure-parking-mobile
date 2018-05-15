@@ -1,11 +1,52 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
+  <ion-navbar color="yellow">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>Bookings</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+<div *ngFor="let item of data">
+	<ion-card>
+		<ion-item *ngIf="item.status == 0" style="background-color: #222222; color: white; font-weight: 600;">
+			<h5> Looking for parking...</h5>
+		</ion-item>
+		<ion-item *ngIf="item.status == 1 && item.end_time == 'n/a'" style="background-color: #01796F; color: white; font-weight: 600;">
+			<h5> Current Booking </h5>
+		</ion-item>
+		<ion-item>
+			<ion-avatar item-start>
+		      <img src="../../assets/imgs/1.jpeg">
+		    </ion-avatar>
+			<h2>{{item.place}}</h2>
+			<p>Address of the place</p>
+		</ion-item>
 
+		<ion-card-content>
+		    <p>Date: <b>{{item.start_date}} </b><br> 
+		    Check-in: <b>{{item.start_time}} </b><br>
+		    <span *ngIf="item.status == 2 && item.end_time != 'n/a'"> Check-out: <b>{{item.end_time}} </b></span>
+			</p>
+	  </ion-card-content>
+
+	  <ion-row *ngIf="item.status == 2 && item.end_time != 'n/a'">
+	  	<ion-col>
+	  		<button ion-button icon-left clear small>
+		        <ion-icon name="cash"></ion-icon>
+		        <div><b>P{{item.total_cost}}</b></div>
+		      </button>
+	  	</ion-col>
+	  	<ion-col center text-center>
+	  		<button ion-button icon-left clear small>
+		        <ion-icon name="time"></ion-icon>
+		        <div>{{item.total_hours}}</div>
+		      </button>
+	    </ion-col>
+	  </ion-row>
+
+
+	</ion-card>
+</div>
 </ion-content>

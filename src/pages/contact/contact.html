@@ -1,17 +1,22 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
+  <ion-navbar color="yellow">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>Find My Car</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+<ion-content padding>
+  <div class="main-button">
+    <button ion-button color="dark" large outline icon-left style="height: 48%; width: 100%; margin-bottom: 10px;">
+      <ion-icon name="bug"> </ion-icon> 
+      Augmented Reality
+    </button>
+
+    <button ion-button color="dark" large outline icon-left style="height: 48%; width: 100%;">
+      <ion-icon name="map"> </ion-icon> 
+      Map Navigation
+    </button>
+  </div>
 </ion-content>
